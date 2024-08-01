@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagem do Farol de Trânsito</title>
+</head>
+<body>
+    <h1>Mensagem do Farol de Trânsito</h1>
+    <label for="cor">Digite a cor do farol de trânsito (vermelho, amarelo, verde):</label>
+    <input type="text" id="cor" placeholder="Digite a cor">
+    <button onclick="avaliarCor()">Avaliar</button>
+    <p id="mensagem"></p>
+
+    <script>
+        function avaliarCor() {
+            // Obtém o valor do input
+            var cor = document.getElementById('cor').value.toLowerCase();
+            var mensagemElement = document.getElementById('mensagem');
+
+            // Usa o switch para determinar a mensagem com base na cor
+            switch (cor) {
+                case 'vermelho':
+                    mensagemElement.textContent = 'Pare!';
+                    break;
+                case 'amarelo':
+                    mensagemElement.textContent = 'Atenção!';
+                    break;
+                case 'verde':
+                    mensagemElement.textContent = 'Siga!';
+                    break;
+                default:
+                    mensagemElement.textContent = 'Cor inválida.';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

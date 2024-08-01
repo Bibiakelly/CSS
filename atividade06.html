@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Nota</title>
+</head>
+<body>
+    <h1>Avaliação de Nota do Aluno</h1>
+    <label for="nota">Digite a nota do aluno (0 a 10):</label>
+    <input type="number" id="nota" min="0" max="10">
+    <button onclick="avaliarNota()">Avaliar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function avaliarNota() {
+            
+            let nota = parseFloat(document.getElementById('nota').value);
+            let resultadoElement = document.getElementById('resultado');
+
+            
+            if (isNaN(nota) || nota < 0 || nota > 10) {
+                resultadoElement.textContent = "Nota inválida. Digite uma nota entre 0 e 10.";
+                return;
+            }
+
+            
+            switch (true) {
+                case (nota >= 9):
+                    resultadoElement.textContent = "Excelente!";
+                    break;
+                case (nota >= 7):
+                    resultadoElement.textContent = "Bom trabalho!";
+                    break;
+                case (nota >= 5):
+                    resultadoElement.textContent = "Suficiente.";
+                    break;
+                default:
+                    resultadoElement.textContent = "Precisa melhorar.";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

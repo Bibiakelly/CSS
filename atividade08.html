@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cor do Farol de Trânsito</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            transition: background-color 0.5s; /* Suaviza a transição da cor de fundo */
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mensagem">Digite a cor do farol de trânsito</h1>
+    <label for="cor">Digite a cor do farol de trânsito (vermelho, amarelo, verde):</label>
+    <input type="text" id="cor" placeholder="Digite a cor">
+    <button onclick="avaliarCor()">Avaliar</button>
+
+    <script>
+        function avaliarCor() {
+            // Obtém o valor do input
+            var cor = document.getElementById('cor').value.trim().toLowerCase();
+            var mensagemElement = document.getElementById('mensagem');
+
+            // Define a cor de fundo e a mensagem com base na cor do farol
+            switch (cor) {
+                case 'vermelho':
+                    mensagemElement.textContent = 'Pare!';
+                    document.body.style.backgroundColor = 'red';
+                    break;
+                case 'amarelo':
+                    mensagemElement.textContent = 'Atenção!';
+                    document.body.style.backgroundColor = 'yellow';
+                    break;
+                case 'verde':
+                    mensagemElement.textContent = 'Siga!';
+                    document.body.style.backgroundColor = 'green';
+                    break;
+                default:
+                    mensagemElement.textContent = 'Cor inválida.';
+                    document.body.style.backgroundColor = 'white'; // Cor padrão
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
