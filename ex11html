@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Atividade Senac</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h2 {
+            margin: 0 0 10px;
+            color: #4CAF50;
+        }
+        .options {
+            margin: 10px 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .result.correct {
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+        .result.incorrect {
+            background-color: #f2dede;
+            color: #a94442;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz - Atividade Senac</h1>
+        <div id="quiz"></div>
+        <button onclick="submitQuiz()">Enviar Respostas</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: 'Qual a cidade de Olímpia, que deu origem aos jogos olímpicos, fica localizada em que país europeu?',
+                options: ['Mónaco', 'França', 'Grécia', 'Luxemburgo'],
+                correctAnswer: 'Grécia'
+            },
+            {
+                question: 'Como é conhecido o símbolo olímpico?',
+                options: ['Espirito olímpico', 'Duques olímpicos', 'Cidade olímpica', 'Anéis olímpico'],
+                correctAnswer: 'Anéis olímpico'
+            },
+            {
+                question: 'O símbolo das Olimpíadas é composto por quantos anéis entrelaçados?',
+                options: ['2 anéis', '6 anéis', '5 anéis', '3 anéis'],
+                correctAnswer: '5 anéis'
+            },
+            {
+                question: 'De quanto em quantos anos as Olimpíadas acontecem?',
+                options: ['2 em 2', '4 em 4', '3 em 3', '6 em 6'],
+                correctAnswer: '4 em 4'
+            },
+            {
+                question: 'Os participantes das Olimpíadas realizavam para homenagear que Deus?',
+                options: ['Apolo', 'Afrodite', 'Atena', 'Zeus'],
+                correctAnswer: 'Zeus'
+            }
+        ];
+
+        function renderQuiz() {
+            const quizContainer = document.getElementById('quiz');
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.innerHTML = `
+                    <h2>Pergunta ${index + 1}:</h2>
+                    <p>${q.question}</p>
+                    <div class="options">
+                        ${q.options.map((option, i) => `
+                            <label>
+                                <input type="radio" name="question${index}" value="${option}"> ${option}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function submitQuiz() {
+            const resultDiv = document.getElementById('result');
+            let score = 0;
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                if (selectedOption) {
+                    const answer = selectedOption.value;
+                    if (answer === q.correctAnswer) {
+                        score += 2;
+                        resultDiv.innerHTML += `
+                            <div class="result correct">
+                                <h2>Pergunta ${index + 1}:</h2>
+                                Alternativa correta: ${q.correctAnswer}</br>
+                                Sua resposta foi: ${answer}</br>
+                                Pontos: 2
+                            </div>
+                        `;
+                    } else {
+                        resultDiv.innerHTML += `
+                            <div class="result incorrect">
+                                <h2>Pergunta ${index + 1}:</h2>
+                                Alternativa correta: ${q.correctAnswer}</br>
+                                Sua resposta foi: ${answer}</br>
+                                Pontos: 0
+                            </div>
+                        `;
+                    }
+                } else {
+                    resultDiv.innerHTML += `
+                        <div class="result incorrect">
+                            <h2>Pergunta ${index + 1}:</h2>
+                            Alternativa correta: ${q.correctAnswer}</br>
+                            Sua resposta foi: Nenhuma resposta</br>
+                            Pontos: 0
+                        </div>
+                    `;
+                }
+            });
+            resultDiv.innerHTML += `<h2>Total de Pontos: ${score}</h2>`;
+        }
+
+        window.onload = renderQuiz;
+    </script>
+</body>
+</html>
