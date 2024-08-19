@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo do Dobro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .result {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .result strong {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="result" class="result"></div>
+
+    <script>
+        function calcularDobro(numero) {
+            // Converte o valor para número
+            let numeroConvertido = parseFloat(numero);
+            if (isNaN(numeroConvertido)) {
+                return "Valor inválido. Por favor, digite um número.";
+            }
+            let numeroDobrado = numeroConvertido * 2;
+            return numeroDobrado;
+        }
+
+        // Solicita um número ao usuário
+        let numero = prompt("Digite um número");
+
+        // Calcula o dobro do número
+        let resultado = calcularDobro(numero);
+
+        // Exibe o resultado na página
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `<strong>O dobro do número é:</strong> ${resultado}`;
+    </script>
+</body>
+</html>
