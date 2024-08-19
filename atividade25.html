@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #output.console-log {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body onkeypress="corDaLetra(event)" onkeyup="fundoBranco()">
+    <h1>Digite algo no teclado</h1>
+    <div id="output">Aperte qualquer tecla...</div>
+
+    <script>
+        function corDaLetra(event) {
+            // Obtém o código da tecla pressionada
+            let tecla = event.key.toLowerCase();
+            let cor;
+            
+            // Define a cor com base na tecla pressionada
+            switch(tecla) {
+                case 'a':
+                    cor = 'red';
+                    break;
+                case 'b':
+                    cor = 'blue';
+                    break;
+                case 'c':
+                    cor = 'green';
+                    break;
+                default:
+                    cor = 'black'; // Cor padrão
+            }
+            
+            // Atualiza o texto e a cor de fundo da página
+            let output = document.getElementById('output');
+            output.style.color = cor;
+            output.innerHTML = `Você pressionou a tecla: <strong>${event.key}</strong>`;
+            
+            // Imprime a mensagem no console
+            console.log(`Você pressionou a tecla: ${event.key}`);
+        }
+
+        function fundoBranco() {
+            // Define o fundo branco quando a tecla é liberada
+            let output = document.getElementById('output');
+            output.style.backgroundColor = 'white';
+        }
+    </script>
+</body>
+</html>
