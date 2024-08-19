@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relógios com Data</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .relogio {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            box-sizing: border-box;
+        }
+
+        .data, .horas, .minutos, .segundos {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .horas, .minutos, .segundos {
+            font-size: 40px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .separador {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .time-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #relogio1 {
+            border: 2px solid #007bff;
+        }
+
+        #relogio2 {
+            border: 2px dashed #28a745;
+        }
+
+        #relogio3 {
+            border: 2px dotted #dc3545;
+        }
+
+        #relogio4 {
+            background: linear-gradient(135deg, #ffcc00, #ff6699);
+            color: white;
+        }
+
+        #relogio5 {
+            background-color: #343a40;
+            color: white;
+            border: 2px solid #6c757d;
+        }
+
+        #relogio6 {
+            border: 2px groove #17a2b8;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="relogio1" class="relogio">
+            <div id="data1" class="data">--/--/----</div>
+            <div class="time-container">
+                <div id="horas1" class="horas">00</div>
+                <span id="separador1" class="separador">:</span>
+                <div id="minutos1" class="minutos">00</div>
+                <span id="separador1" class="separador">:</span>
+                <div id="segundos1" class="segundos">00</div>
+            </div>
+        </div>
+        <div id="relogio2" class="relogio">
+            <div id="data2" class="data">--/--/----</div>
+            <div class="time-container">
+                <div id="horas2" class="horas">00</div>
+                <span id="separador2" class="separador">:</span>
+                <div id="minutos2" class="minutos">00</div>
+                <span id="separador2" class="separador">:</span>
+                <div id="segundos2" class="segundos">00</div>
+            </div>
+        </div>
+        <div id="relogio3" class="relogio">
+            <div id="data3" class="data">--/--/----</div>
+            <div class="time-container">
+                <div id="horas3" class="horas">00</div>
+                <span id="separador3" class="separador">:</span>
+                <div id="minutos3" class="minutos">00</div>
+                <span id="separador3" class="separador">:</span>
+                <div id="segundos3" class="segundos">00</div>
+            </div>
+        </div>
+        <div id="relogio4" class="relogio">
+            <div id="data4" class="data">--/--/----</div>
+            <div class="time-container">
+                <div id="horas4" class="horas">00</div>
+                <span id="separador4" class="separador">:</span>
+                <div id="minutos4" class="minutos">00</div>
+                <span id="separador4" class="separador">:</span>
+                <div id="segundos4" class="segundos">00</div>
+            </div>
+        </div>
+        <div id="relogio5" class="relogio">
+            <div id="data5" class="data">--/--/----</div>
+            <div class="time-container">
+                <div id="horas5" class="horas">00</div>
+                <span id="separador5" class="separador">:</span>
+                <div id="minutos5" class="minutos">00</div>
+                <span id="separador5" class="separador">:</span>
+                <div id="segundos5" class="segundos">00</div>
+            </div>
+        </div>
+        <div id="relogio6" class="relogio">
+            <div id="data6" class="data">--/--/----</div>
+            <div class="time-container">
+                <div id="horas6" class="horas">00</div>
+                <span id="separador6" class="separador">:</span>
+                <div id="minutos6" class="minutos">00</div>
+                <span id="separador6" class="separador">:</span>
+                <div id="segundos6" class="segundos">00</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function atualizarRelogios() {
+            const agora = new Date();
+            const horas = agora.getHours().toString().padStart(2, '0');
+            const minutos = agora.getMinutes().toString().padStart(2, '0');
+            const segundos = agora.getSeconds().toString().padStart(2, '0');
+
+            const dia = agora.getDate().toString().padStart(2, '0');
+            const mes = (agora.getMonth() + 1).toString().padStart(2, '0');
+            const ano = agora.getFullYear();
+
+            const dataCompleta = `${dia}/${mes}/${ano}`;
+
+            document.getElementById("horas1").textContent = horas;
+            document.getElementById("minutos1").textContent = minutos;
+            document.getElementById("segundos1").textContent = segundos;
+            document.getElementById("data1").textContent = dataCompleta;
+
+            document.getElementById("horas2").textContent = horas;
+            document.getElementById("minutos2").textContent = minutos;
+            document.getElementById("segundos2").textContent = segundos;
+            document.getElementById("data2").textContent = dataCompleta;
+
+            document.getElementById("horas3").textContent = horas;
+            document.getElementById("minutos3").textContent = minutos;
+            document.getElementById("segundos3").textContent = segundos;
+            document.getElementById("data3").textContent = dataCompleta;
+
+            document.getElementById("horas4").textContent = horas;
+            document.getElementById("minutos4").textContent = minutos;
+            document.getElementById("segundos4").textContent = segundos;
+            document.getElementById("data4").textContent = dataCompleta;
+
+            document.getElementById("horas5").textContent = horas;
+            document.getElementById("minutos5").textContent = minutos;
+            document.getElementById("segundos5").textContent = segundos;
+            document.getElementById("data5").textContent = dataCompleta;
+
+            document.getElementById("horas6").textContent = horas;
+            document.getElementById("minutos6").textContent = minutos;
+            document.getElementById("segundos6").textContent = segundos;
+            document.getElementById("data6").textContent = dataCompleta;
+        }
+
+        setInterval(atualizarRelogios, 1000);
+        atualizarRelogios(); // Atualiza imediatamente ao carregar a página
+    </script>
+</body>
+</html>
