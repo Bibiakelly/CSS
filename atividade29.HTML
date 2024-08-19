@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            width: 360px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic-wrapper {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+            object-fit: cover;
+        }
+
+        .profile-icon {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .label {
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            height: 45px;
+            padding: 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button {
+            height: 50px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .bottomOpts {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btnCancelar, .btnEsqueceu {
+            background-color: #f0f2f5;
+            border: 1px solid #ccc;
+            color: #333;
+        }
+
+        .btnCancelar:hover, .btnEsqueceu:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Formulário de Login</h1>
+        <main>
+            <div class="profile-pic-wrapper">
+                <img src="fotoPerfil.png" alt="Foto de perfil">
+                <div class="profile-icon">
+                    <span>👤</span> <!-- Ícone de perfil -->
+                </div>
+            </div>
+            <form action="">
+                <div class="label"><label for="usuario">Usuário:</label></div>
+                <input type="text" id="usuario" name="usuario" class="inputTexto" placeholder="Digite seu usuário">
+
+                <div class="label"><label for="senha">Senha:</label></div>
+                <input type="password" id="senha" name="senha" class="inputTexto" placeholder="Digite sua senha">
+
+                <button type="submit">Login</button>
+                <div class="label">
+                    <input type="checkbox" id="salvar" name="salvar" class="inputSalvar">
+                    <label for="salvar">Salvar dados</label>
+                </div>
+            </form>
+        </main>
+        <div class="bottomOpts">
+            <button class="btnCancelar">Cancelar</button>
+            <button class="btnEsqueceu">Esqueceu a senha?</button>
+        </div>
+    </div>
+</body>
+
+</html>
