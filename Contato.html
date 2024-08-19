@@ -4,67 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatriz Santos Jordão</title>
+    <title>Contato - Beatriz Santos Jordão</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
     <div id="container">
         <nav>
-            <ul>
+            <ul class="nav-list">
                 <li><a href="index.html">Sobre Mim</a></li>
-                <li><a href="Projetos.html">Projetos</a></li>
-                <li><a href="contato.html">contato</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
 
-        <div id="center">
-            <header>
-                <img src="imagem/WhatsApp Image 2024-07-05 at 12.24.37.jpeg" alt="" width="300">
-
-
-            </header>
-        </div>
-
-
-
-        <div id="nome">
-            <h1 class="titulo05">Contato
-            </h1>
-
-        </Div>
-
-        <Br></Br>
-
-
-        <div id="Wh">
-            <header>
-                <img src="imagem/whats1.png" alt="" width="100">
-
-
-            </header>
-
-            <Br></Br>
-        </div id="tel">
-        <h1 class="tel"> 55+(11)94067-0323
-        </h1>
-
-    </Div>
-
-
-    </div>
-
-
-
-    </Div>
-
-
-
-
-
-
-
-
-
+        <main>
+            <section id="contato" class="content-box">
+                <h1 class="titulo01">Contato</h1>
+                <p>Você pode me contatar pelos seguintes meios:</p>
+                <ul>
+                    <li>Email: beatrizsantos@example.com</li>
+                    <li>Telefone: (11) 99999-9999</li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/beatrizsantos">linkedin.com/in/beatrizsantos</a></li>
+                </ul>
+                <p>Ou preencha o formulário abaixo:</p>
+                <form action="submit_form.php" method="post">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
     </div>
 </body>
+
+</html>
