@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens na Tela</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .message {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="messages"></div>
+
+    <script>
+        function imprimirMensagem(mensagem){
+            const messagesDiv = document.getElementById('messages');
+
+            // Criar um novo elemento para a mensagem
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message';
+
+            // Adicionar a mensagem ao elemento
+            messageElement.innerHTML = `<strong>Mensagem:</strong> ${mensagem}`;
+            
+            // Adicionar o elemento ao contêiner de mensagens
+            messagesDiv.appendChild(messageElement);
+        }
+
+        
+        imprimirMensagem("Bem-vindo");
+        imprimirMensagem(" Ao Curso Técnico em Informática");
+
+        let msgUsuario = prompt("Digite uma mensagem");
+        if (msgUsuario) { 
+            imprimirMensagem(msgUsuario);
+        }
+    </script>
+</body>
+</html>
